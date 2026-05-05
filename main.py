@@ -2,6 +2,14 @@ import argparse
 import pytesseract
 from src.extractor.core import processar_pdf
 from src.extractor.exporter import salvar_xlsx
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,  # troque pra DEBUG quando quiser mais detalhes
+    format="%(asctime)s [%(levelname)s] %(name)s - %(message)s"
+)
+
+logger = logging.getLogger(__name__)
 
 
 def main():

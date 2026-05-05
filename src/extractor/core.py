@@ -1,3 +1,6 @@
+from pdf2image import convert_from_path
+from .ocr import ocr_pagina
+from .parser import detectar_faixas, extrair_linhas
 import logging
 
 logger = logging.getLogger(__name__)

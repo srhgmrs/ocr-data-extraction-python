@@ -1,31 +1,23 @@
+
+import logging
+
+logger = logging.getLogger(__name__)
+
 def normalizar(texto):
     return texto.strip().lower()
-
 
 def detectar_faixas(dados):
     faixas = {}
 
     for i, texto in enumerate(dados["text"]):
-        t = normalizar(texto)
+        # lógica...
 
-        if t == "cod":
-            label = "cod"
-        elif t == "nome":
-            label = "nome"
-        elif "matr" in t:
-            label = "matricula"
-        else:
-            continue
+        if len(faixas) != 3:
+            logger.warning("Não foi possível detectar todas as colunas esperadas")
+            return None
 
-        if label not in faixas:
-            x = dados["left"][i]
-            w = dados["width"][i]
-            y = dados["top"][i]
-
-            faixas[label] = (x - 80, x + w + 80, y)
-
-    return faixas if len(faixas) == 3 else None
-
+    logger.debug(f"Faixas detectadas: {faixas}")
+    return faixas
 
 def extrair_linhas(dados, faixas):
     resultado = []

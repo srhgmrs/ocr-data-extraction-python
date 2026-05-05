@@ -1,17 +1,61 @@
-# 📄 PDF OCR Extractor — Data Extraction Tool
+# 📄 OCR Data Extraction Pipeline (Python)
 
-Transforme PDFs não estruturados em dados utilizáveis com Python e OCR.
-
-## Sobre o projeto
-
-Este projeto resolve um problema comum em ambientes corporativos:
-**extrair dados estruturados de PDFs escaneados automaticamente.**
-
-Utilizando OCR com Tesseract, o sistema identifica padrões de layout e converte documentos em dados organizados (Excel), prontos para análise ou integração com pipelines de dados.
+Transforme PDFs não estruturados em dados prontos para análise com um pipeline modular de OCR.
 
 ---
 
-## Tecnologias utilizadas
+## 🚀 Overview
+
+Este projeto implementa um **pipeline completo de extração de dados** capaz de transformar documentos PDF escaneados em dados estruturados (Excel), utilizando OCR com Tesseract.
+
+Ele resolve um problema comum em ambientes corporativos:
+➡️ **converter documentos não estruturados em dados utilizáveis automaticamente**
+
+---
+
+## 💡 Problema
+
+Muitos processos empresariais ainda dependem de:
+
+* PDFs escaneados
+* documentos não estruturados
+* extração manual de dados
+
+Isso gera:
+
+* retrabalho
+* erros humanos
+* baixa escalabilidade
+
+---
+
+## ✅ Solução
+
+Este projeto automatiza esse processo através de:
+
+* 🔍 OCR (reconhecimento de texto)
+* 🧠 Detecção de estrutura (colunas: Cod, Nome, Matrícula)
+* 🔄 Processamento de múltiplas páginas
+* 📊 Exportação para Excel
+
+---
+
+## 🧱 Arquitetura
+
+O projeto segue uma arquitetura modular:
+
+```
+src/
+ └── extractor/
+     ├── core.py        # Pipeline principal
+     ├── ocr.py         # Extração OCR
+     ├── parser.py      # Interpretação dos dados
+     └── exporter.py    # Exportação para Excel
+```
+
+---
+
+## ⚙️ Tecnologias
 
 * Python
 * Tesseract OCR
@@ -20,39 +64,25 @@ Utilizando OCR com Tesseract, o sistema identifica padrões de layout e converte
 
 ---
 
-## Funcionalidades
+## ▶️ Como executar
 
-* ✔️ Extração automática de dados via OCR
-* ✔️ Detecção inteligente de colunas (Cod, Nome, Matrícula)
-* ✔️ Processamento de múltiplas páginas
-* ✔️ Exportação para Excel
-* ✔️ Interface via linha de comando (CLI)
-* ✔️ Configuração flexível (Tesseract / Poppler)
-
----
-
-## Caso de uso real
-
-Ideal para:
-
-* Automação de processos administrativos
-* Digitalização de documentos
-* Pipelines de dados
-* Integração com Power Automate / RPA
-
----
-
-## ▶️ Como usar
+### 1. Instalar dependências
 
 ```bash
 pip install -r requirements.txt
 ```
 
+---
+
+### 2. Executar o script
+
 ```bash
 python main.py arquivo.pdf
 ```
 
-### Com configurações customizadas:
+---
+
+### 3. Parâmetros opcionais
 
 ```bash
 python main.py arquivo.pdf \
@@ -63,50 +93,48 @@ python main.py arquivo.pdf \
 
 ---
 
-## Pré-requisitos
+## 📊 Output
 
-### Tesseract OCR
+O sistema gera um arquivo Excel estruturado:
 
-https://github.com/tesseract-ocr/tesseract
-
-### Poppler
-
-https://github.com/oschwartz10612/poppler-windows
-
----
-
-## Output
-
-Arquivo Excel com estrutura:
-
-| Pagina | Cod | Nome | Matrícula |
+| Página | Cod | Nome | Matrícula |
 | ------ | --- | ---- | --------- |
 
 ---
 
-## Arquitetura
+## 💼 Aplicações reais
 
-O projeto segue uma estrutura modular:
+Este projeto pode ser utilizado em:
 
-* `ocr.py` → leitura OCR
-* `parser.py` → interpretação dos dados
-* `core.py` → pipeline principal
-* `exporter.py` → saída em Excel
+* Automação de processos administrativos
+* Digitalização de documentos
+* Integração com RPA (Power Automate)
+* Pipelines de dados (ETL)
+* Sistemas internos corporativos
 
 ---
 
-## Possíveis melhorias
+## 📈 Evoluções futuras
 
-* Suporte a múltiplos layouts de documentos
 * API REST (FastAPI)
+* Suporte a múltiplos layouts de PDF
 * Integração com cloud (Azure / AWS)
-* Pipeline automatizado (Airflow / Power Automate)
+* Processamento em lote (pipeline)
 
 ---
 
-## Autor
+## 🧠 Destaques técnicos
 
-Projeto desenvolvido como parte de portfólio para atuação em:
+* Processamento de dados não estruturados
+* Uso de OCR em pipeline automatizado
+* Arquitetura modular e escalável
+* Separação clara de responsabilidades
+
+---
+
+## 👩‍💻 Autor
+
+Projeto desenvolvido como parte de portfólio voltado para:
 
 * Engenharia de Dados
 * Automação
@@ -114,15 +142,4 @@ Projeto desenvolvido como parte de portfólio para atuação em:
 
 ---
 
-## Destaque técnico
-
-Este projeto demonstra:
-
-* Manipulação de dados não estruturados
-* Uso de OCR em produção
-* Design modular em Python
-* Automação de processos reais
-
----
-
-Se esse projeto te ajudou, considere dar um star!
+⭐ Se este projeto te ajudou, considere dar um star!
